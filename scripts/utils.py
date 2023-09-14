@@ -26,7 +26,7 @@ def print_progress_bar(text, iteration, total, start_time=None, length=50):
         total_time = f"{mins:02d}:{secs:02d}"
 
         progress_bar = f"{bar} | Completed: {iteration}/{total} {percent}% | Time elapsed: {elapsed_time}" \
-                       f"/{total_time} | Time left: ~{t_left}"
+                       f"/{total_time} | Time left: ~= {t_left}"
     else:
         progress_bar = f"{bar} | {percent}% Complete {iteration}/{total} instances."
 
