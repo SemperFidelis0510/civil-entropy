@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 import time
 
 
@@ -10,6 +11,7 @@ def normalize_path(path_str):
 
 
 def print_progress_bar(text, iteration, total, start_time=None, length=50):
+    """Prints a progress bar with the percentage of completion and time statistics."""
     percent = "{0:.1f}".format(100 * (iteration / float(total)))
     filled_length = int(length * iteration // total)
     bar = "█" * filled_length + '-' * (length - filled_length)
@@ -18,15 +20,13 @@ def print_progress_bar(text, iteration, total, start_time=None, length=50):
         elapsed_time = time.time() - start_time
         total_time = elapsed_time * total / max(1, iteration)
         t_left = elapsed_time * (total - iteration) / max(1, iteration)
-        mins, secs = divmod(int(elapsed_time), 60)
-        elapsed_time = f"{mins:02d}:{secs:02d}"
-        mins, secs = divmod(int(t_left), 60)
-        t_left = f"{mins:02d}:{secs:02d}"
-        mins, secs = divmod(int(total_time), 60)
-        total_time = f"{mins:02d}:{secs:02d}"
 
-        progress_bar = f"{bar} | Completed: {iteration}/{total} {percent}% | Time elapsed: {elapsed_time}" \
-                       f"/{total_time} | Time left: ~= {t_left}"
+        elapsed_time_str = str(timedelta(seconds=int(elapsed_time)))
+        t_left_str = str(timedelta(seconds=int(t_left)))
+        total_time_str = str(timedelta(seconds=int(total_time)))
+
+        progress_bar = f"{bar} | Completed: {iteration}/{total}, {percent}% | Time elapsed: {elapsed_time_str}" \
+                       f"/{total_time_str} | Time left: ~= {t_left_str} |"
     else:
         progress_bar = f"{bar} | {percent}% Complete {iteration}/{total} instances."
 

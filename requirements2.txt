@@ -1,0 +1,17 @@
+numpy
+pillow
+scikit-image
+opencv-python
+matplotlib
+scipy
+discord
+PyWavelets
+requests
+tk
+geopandas
+shapely
+torch
+tqdm
+plotnine
+torchvision
+pytorch_wavelets

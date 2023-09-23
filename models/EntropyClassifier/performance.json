@@ -1,0 +1,104 @@
+[
+    {
+        "lr": 0.01,
+        "epochs": 50,
+        "dataset size": 7121,
+        "testset size": 374,
+        "test part": 0.05,
+        "batch size": 64,
+        "performance": 0.4331550802139037
+    },
+    {
+        "lr": 0.1,
+        "epochs": 50,
+        "dataset size": 7121,
+        "testset size": 374,
+        "test part": 0.05,
+        "batch size": 64,
+        "performance": 0.32352941176470584
+    },
+    {
+        "lr": 0.1,
+        "epochs": 50,
+        "dataset size": 7121,
+        "testset size": 374,
+        "test part": 0.05,
+        "batch size": 64,
+        "performance": 0.3663101604278075
+    },
+    {
+        "lr": 0.005,
+        "epochs": 50,
+        "dataset size": 7121,
+        "testset size": 374,
+        "test part": 0.05,
+        "batch size": 128,
+        "performance": 0.31016042780748665
+    },
+    {
+        "lr": 0.0001,
+        "epochs": 30,
+        "dataset size": 7121,
+        "testset size": 374,
+        "test part": 0.05,
+        "batch size": 128,
+        "performance": 0.40909090909090906
+    },
+    {
+        "lr": 0.0001,
+        "epochs": 50,
+        "dataset size": 7121,
+        "testset size": 374,
+        "test part": 0.05,
+        "batch size": 256,
+        "performance": 0.4304812834224599
+    },
+    {
+        "lr": 1e-05,
+        "epochs": 20,
+        "dataset size": 6746,
+        "testset size": 749,
+        "test part": 0.1,
+        "batch size": 256,
+        "performance": 0.4098798397863818
+    },
+    {
+        "lr": 0.005,
+        "epochs": 20,
+        "dataset size": 6746,
+        "testset size": 749,
+        "test part": 0.1,
+        "batch size": 256,
+        "performance": 0.5981308411214953
+    },
+    {
+        "lr": 0.005,
+        "epochs": 50,
+        "dataset size": 6746,
+        "testset size": 749,
+        "test part": 0.1,
+        "batch size": 256,
+        "performance": 0.4966622162883845,
+        "comment": "new architecture. attention layer to regular."
+    },
+    {
+        "lr": 0.005,
+        "epochs": 20,
+        "dataset size": 6746,
+        "testset size": 749,
+        "test part": 0.1,
+        "batch size": 256,
+        "performance": 0.630173564753004,
+        "comment": "new architecture. less layers."
+    },
+    {
+        "lr": 0.005,
+        "epochs": 20,
+        "dataset size": 6746,
+        "testset size": 749,
+        "test part": 0.1,
+        "batch size": 256,
+        "performance": 0.4819759679572763,
+        "comment": "new architecture. less layers."
+    }
+]
