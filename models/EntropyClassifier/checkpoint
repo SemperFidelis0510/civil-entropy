@@ -1,2 +1,2 @@
-model_checkpoint_path: "checkpoint.chk"
-all_model_checkpoint_paths: "checkpoint.chk"
+model_checkpoint_path: "instance_e=20_ds=6746_bs=64"
+all_model_checkpoint_paths: "instance_e=20_ds=6746_bs=64"

@@ -1,104 +1,304 @@
 [
     {
-        "lr": 0.01,
-        "epochs": 50,
-        "dataset size": 7121,
-        "testset size": 374,
-        "test part": 0.05,
-        "batch size": 64,
-        "performance": 0.4331550802139037
-    },
-    {
-        "lr": 0.1,
-        "epochs": 50,
-        "dataset size": 7121,
-        "testset size": 374,
-        "test part": 0.05,
-        "batch size": 64,
-        "performance": 0.32352941176470584
-    },
-    {
-        "lr": 0.1,
-        "epochs": 50,
-        "dataset size": 7121,
-        "testset size": 374,
-        "test part": 0.05,
-        "batch size": 64,
-        "performance": 0.3663101604278075
-    },
-    {
-        "lr": 0.005,
-        "epochs": 50,
-        "dataset size": 7121,
-        "testset size": 374,
-        "test part": 0.05,
-        "batch size": 128,
-        "performance": 0.31016042780748665
-    },
-    {
-        "lr": 0.0001,
-        "epochs": 30,
-        "dataset size": 7121,
-        "testset size": 374,
-        "test part": 0.05,
-        "batch size": 128,
-        "performance": 0.40909090909090906
-    },
-    {
-        "lr": 0.0001,
-        "epochs": 50,
-        "dataset size": 7121,
-        "testset size": 374,
-        "test part": 0.05,
-        "batch size": 256,
-        "performance": 0.4304812834224599
-    },
-    {
-        "lr": 1e-05,
-        "epochs": 20,
-        "dataset size": 6746,
-        "testset size": 749,
-        "test part": 0.1,
-        "batch size": 256,
-        "performance": 0.4098798397863818
-    },
-    {
-        "lr": 0.005,
-        "epochs": 20,
-        "dataset size": 6746,
-        "testset size": 749,
-        "test part": 0.1,
-        "batch size": 256,
-        "performance": 0.5981308411214953
-    },
-    {
-        "lr": 0.005,
-        "epochs": 50,
-        "dataset size": 6746,
-        "testset size": 749,
-        "test part": 0.1,
-        "batch size": 256,
-        "performance": 0.4966622162883845,
-        "comment": "new architecture. attention layer to regular."
-    },
-    {
-        "lr": 0.005,
-        "epochs": 20,
-        "dataset size": 6746,
-        "testset size": 749,
-        "test part": 0.1,
-        "batch size": 256,
-        "performance": 0.630173564753004,
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 20,
+            "batch_size": 256,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 6746,
+            "testset_length": 749
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 368,
+            "success_rate": 49.13217623497997,
+            "confusion_matrix": [
+                [
+                    0,
+                    0,
+                    106
+                ],
+                [
+                    0,
+                    0,
+                    275
+                ],
+                [
+                    0,
+                    0,
+                    368
+                ]
+            ],
+            "precision": 0.2413970741585131,
+            "recall": 0.49132176234979974,
+            "f1_score": 0.3237357359798143,
+            "log_loss": 1.0842330374609486
+        },
         "comment": "new architecture. less layers."
     },
     {
-        "lr": 0.005,
-        "epochs": 20,
-        "dataset size": 6746,
-        "testset size": 749,
-        "test part": 0.1,
-        "batch size": 256,
-        "performance": 0.4819759679572763,
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 20,
+            "batch_size": 256,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 6746,
+            "testset_length": 749
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 368,
+            "success_rate": 49.13217623497997,
+            "confusion_matrix": [
+                [
+                    0,
+                    0,
+                    106
+                ],
+                [
+                    0,
+                    0,
+                    275
+                ],
+                [
+                    0,
+                    0,
+                    368
+                ]
+            ],
+            "precision": 0.2413970741585131,
+            "recall": 0.49132176234979974,
+            "f1_score": 0.3237357359798143,
+            "log_loss": 1.0842330374609486
+        },
+        "comment": "new architecture. less layers."
+    },
+    {
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 20,
+            "batch_size": 256,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 6746,
+            "testset_length": 749
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 368,
+            "success_rate": 49.13217623497997,
+            "confusion_matrix": [
+                [
+                    0,
+                    0,
+                    106
+                ],
+                [
+                    0,
+                    0,
+                    275
+                ],
+                [
+                    0,
+                    0,
+                    368
+                ]
+            ],
+            "precision": 0.2413970741585131,
+            "recall": 0.49132176234979974,
+            "f1_score": 0.3237357359798143,
+            "log_loss": 1.0842330374609486
+        },
+        "comment": "new architecture. less layers."
+    },
+    {
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 20,
+            "batch_size": 256,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 6746,
+            "testset_length": 749
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 368,
+            "success_rate": 49.13217623497997,
+            "confusion_matrix": [
+                [
+                    0,
+                    0,
+                    106
+                ],
+                [
+                    0,
+                    0,
+                    275
+                ],
+                [
+                    0,
+                    0,
+                    368
+                ]
+            ],
+            "precision": 0.2413970741585131,
+            "recall": 0.49132176234979974,
+            "f1_score": 0.3237357359798143,
+            "log_loss": 1.0842330374609486
+        },
+        "comment": "new architecture. less layers."
+    },
+    {
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 10,
+            "batch_size": 256,
+            "learning_rate": 0.005,
+            "num_classes": 3
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 376,
+            "success_rate": 50.20026702269693,
+            "confusion_matrix": [
+                [
+                    0,
+                    0,
+                    106
+                ],
+                [
+                    0,
+                    43,
+                    232
+                ],
+                [
+                    0,
+                    35,
+                    333
+                ]
+            ],
+            "precision": 0.4462369508332432,
+            "recall": 0.5020026702269693,
+            "f1_score": 0.4043865438258054,
+            "log_loss": 0.9797155799789327
+        },
+        "comment": "new architecture. less layers."
+    },
+    {
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 10,
+            "batch_size": 256,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 6746,
+            "testset_length": 749
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 275,
+            "success_rate": 36.71562082777036,
+            "confusion_matrix": [
+                [
+                    0,
+                    106,
+                    0
+                ],
+                [
+                    0,
+                    275,
+                    0
+                ],
+                [
+                    3,
+                    365,
+                    0
+                ]
+            ],
+            "precision": 0.13534578723373794,
+            "recall": 0.3671562082777036,
+            "f1_score": 0.19778248242187754,
+            "log_loss": 1.3633373858772706
+        },
+        "comment": "new architecture. less layers."
+    },
+    {
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 10,
+            "batch_size": 256,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 6746,
+            "testset_length": 749
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 298,
+            "success_rate": 39.786381842456606,
+            "confusion_matrix": [
+                [
+                    0,
+                    53,
+                    53
+                ],
+                [
+                    0,
+                    235,
+                    39
+                ],
+                [
+                    0,
+                    306,
+                    63
+                ]
+            ],
+            "precision": 0.34496838259274193,
+            "recall": 0.3978638184245661,
+            "f1_score": 0.3165461454380867,
+            "log_loss": 3.9989412995353737
+        },
+        "comment": "new architecture. less layers."
+    },
+    {
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 20,
+            "batch_size": 64,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 6746,
+            "testset_length": 749
+        },
+        "performance": {
+            "test_samples": 749,
+            "right_predictions": 409,
+            "success_rate": 54.606141522029375,
+            "confusion_matrix": [
+                [
+                    0,
+                    79,
+                    27
+                ],
+                [
+                    0,
+                    156,
+                    118
+                ],
+                [
+                    0,
+                    116,
+                    253
+                ]
+            ],
+            "precision": 0.4757584838597378,
+            "recall": 0.5460614152202937,
+            "f1_score": 0.5076301189069128,
+            "log_loss": 1.0638372848972675
+        },
         "comment": "new architecture. less layers."
     }
 ]
