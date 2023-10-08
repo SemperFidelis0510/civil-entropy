@@ -3,8 +3,9 @@ from source.Image import Image
 import json
 import torch
 
+
 class EntropyCalculator:
-    def __init__(self, color_weight = None, ent_norm_path = None, reset_norm = False):
+    def __init__(self, color_weight=None, ent_norm_path=None, reset_norm=False):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.color_weight_gpu = torch.tensor(
             [0.299, 0.587, 0.114]).to(self.device)  # Assuming you want to use the same weights and move them to GPU
@@ -24,7 +25,8 @@ class EntropyCalculator:
                         for column_index, sub_image in enumerate(row):
                             segment_entropies = []
                             for segment in sub_image:
-                                segment_entropies.append(self.entropy_gpu(segment, self.get_norm(method, level, row_index, column_index)))
+                                segment_entropies.append(
+                                    self.entropy_gpu(segment, self.get_norm(method, level, row_index, column_index)))
                             ent_row.append(np.mean(segment_entropies))
                         ent_matrix.append(ent_row)
                     temp.append(ent_matrix)
@@ -37,10 +39,10 @@ class EntropyCalculator:
                         norm = self.get_norm(method, level)
                     result = 0
                     for color in processedData:
-                        if level == 0: #approximation coefficient
+                        if level == 0:  # approximation coefficient
                             data = color[level].flatten()
                         else:
-                            data = color[1][::-1][level-1].flatten()
+                            data = color[1][::-1][level - 1].flatten()
                         result += self.entropy_each_channel(data, norm)
                     ent.append(result)
                 temp = ent
@@ -51,31 +53,45 @@ class EntropyCalculator:
                     for row_index, row in enumerate(matrix):
                         ent_row = []
                         for column_index, sub_image in enumerate(row):
-                          ent_row.append(self.entropy_gpu(sub_image, self.get_norm(method, level, row_index, column_index)))
+                            ent_row.append(
+                                self.entropy_gpu(sub_image, self.get_norm(method, level, row_index, column_index)))
                         ent_matrix.append(ent_row)
                     temp.append(ent_matrix)
             image.entropyResults.append(temp)
 
     def get_norm(self, method, level, row=None, column=None):
         if self.reset_norm:
-            return [1]*3
+            return [1] * 3
         if row is not None:
             norm = self.ent_norm[method][level][row][column]
-        else: # dwt
+        else:  # dwt
             norm = self.ent_norm[method][level]
-        return [1]*3#norm
+        return [1] * 3  # norm
 
     def entropy_gpu(self, Data, norm=1):
         result = []
         ent = 0
         if Data.dim() == 3:
             for i in range(3):
-                ent = self.entropy_each_channel(Data[i,:,:], norm=norm[i])
+                ent = self.entropy_each_channel(Data[i, :, :], norm=norm[i])
                 result.append(ent)
             return result
         return [self.entropy_each_channel(Data, norm=norm[0])]
 
     def entropy_each_channel(self, Data, norm=1):
+        """
+        Calculate entropy for each channel of the given data.
+        """
+        # Debug: Print the value of norm
+        print(f"Norm value: {norm}")
+
+        # Ensure norm is a scalar or a single-element list
+        if isinstance(norm, list):
+            if len(norm) == 1:
+                norm = norm[0]
+            else:
+                raise TypeError("Norm should be a scalar or a single-element list")
+
         Data = Data.abs()
         total_sum = torch.sum(Data)
         if total_sum == 0:
@@ -83,7 +99,7 @@ class EntropyCalculator:
 
         normalize_arr = Data / total_sum
         ent = -torch.sum(normalize_arr * torch.log2(normalize_arr + torch.finfo(torch.float32).eps))
-        ent = ent/norm
+        ent = ent / norm
         ent = ent.cpu()
         return ent.item()
 

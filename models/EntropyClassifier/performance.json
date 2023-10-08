@@ -300,5 +300,36 @@
             "log_loss": 1.0638372848972675
         },
         "comment": "new architecture. less layers."
+    },
+    {
+        "hyperparameters": {
+            "test_part": 0.1,
+            "epochs": 20,
+            "batch_size": 64,
+            "learning_rate": 0.005,
+            "num_classes": 3,
+            "dataset_length": 76292,
+            "testset_length": 8476
+        },
+        "performance": {
+            "test_samples": 8476,
+            "right_predictions": 8372,
+            "success_rate": 98.77300613496932,
+            "confusion_matrix": [
+                [
+                    6304,
+                    8
+                ],
+                [
+                    96,
+                    2068
+                ]
+            ],
+            "precision": 0.9878457864936108,
+            "recall": 0.9877300613496932,
+            "f1_score": 0.9876452016922977,
+            "log_loss": 0.16898843517772966
+        },
+        "comment": "new architecture. less layers."
     }
 ]

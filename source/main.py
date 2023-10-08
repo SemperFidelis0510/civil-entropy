@@ -16,15 +16,18 @@ datasets = {'china': "../datasets/satellite/china",
             "classified": "../datasets/classified_pictures",
             "fix_noise": "../datasets/fixed_noise.bmp",
             "test_satellite": "../datasets/classified_pictures/Agriculture/map_image_38.7904_ -99.2209_20230828191958.png",
-            "noising": "../datasets/noising"}
+            "noising": "../datasets/noising",
+            "larger_dataset": "../datasets/more sat"}
 all_methods_with_params = {'laplace': None, 'joint_red_green': None, 'joint_all': None,
-                           'lbp': None, 'lbp_gabor': None, 'RGBCM': None, 'hist':None,
+                           'lbp': None, 'lbp_gabor': None, 'RGBCM': None, 'hist': None,
                            'dft': None, 'naive': None, 'dwt': {'wavelet': 'haar', 'level': 'all'}}
 channels = {
     "rgb": "rgb",
     "hsb": "hsb",
     "YCbCr": "YCbCr"
 }
+
+
 def reset_ent_norm():
     print('reset entropy norm')
     src_folder = datasets["fix_noise"]
@@ -38,8 +41,10 @@ def reset_ent_norm():
 
     # Initialize PipelineManager
     pipeline = PipelineManager(systemInitializer, imageLoader, preprocessor,
-                               processor,entropyCalculator, dataSaver)
+                               processor, entropyCalculator, dataSaver)
     pipeline.runPipeline()
+
+
 def main(dst_folder=None, src_folder=None, process_methods_with_params=None,
          head=None, max_queue_size=None, single_batch_size=None, callback=None, processed_level=None):
     # System Configuration
@@ -58,7 +63,7 @@ def main(dst_folder=None, src_folder=None, process_methods_with_params=None,
     if processed_level is None:
         processed_level = 2
     systemInitializer = SystemInitializer(src_folder, dst_folder, head=head, max_queue_size=max_queue_size,
-                                        single_batch_size=single_batch_size)
+                                          single_batch_size=single_batch_size)
     imageLoader = ImageLoader(callback=callback)
     preprocessor = Preprocessor(crop_size=None)
     processor = Processor(process_methods_with_params, level=processed_level)
@@ -70,15 +75,17 @@ def main(dst_folder=None, src_folder=None, process_methods_with_params=None,
                                processor, entropyCalculator, dataSaver, callback=callback)
     pipeline.runPipeline()
 
+
 def test_and_analyze():
     for methods, param in all_methods_with_params.items():
-        method_para = {methods:param}
+        method_para = {methods: param}
         dst_folder = f"../processed/test_and_analyze/{methods}"
         src_folder = datasets["noising"]
         main(dst_folder, src_folder, method_para, single_batch_size=25)
 
+
 def main_gui(dst_folder=None, src_folder=None, process_methods_with_params=None,
-         head=None, max_queue_size=None, single_batch_size=None, callback=None, processed_level=None):
+             head=None, max_queue_size=None, single_batch_size=None, callback=None, processed_level=None):
     # System Configuration
     if process_methods_with_params is None:
         process_methods_with_params = all_methods_with_params
@@ -95,7 +102,7 @@ def main_gui(dst_folder=None, src_folder=None, process_methods_with_params=None,
     if processed_level is None:
         processed_level = 2
     systemInitializer = SystemInitializer(src_folder, dst_folder, head=head, max_queue_size=max_queue_size,
-                                        single_batch_size=single_batch_size)
+                                          single_batch_size=single_batch_size)
     imageLoader = ImageLoader(callback=callback)
     preprocessor = Preprocessor(crop_size=None)
     processor = Processor(process_methods_with_params, level=processed_level)
@@ -107,14 +114,16 @@ def main_gui(dst_folder=None, src_folder=None, process_methods_with_params=None,
                                processor, entropyCalculator, dataSaver, callback=callback)
     pipeline.runPipeline()
 
+
 if __name__ == '__main__':
     # main()
     # reset_ent_norm()
     # test_and_analyze()
-    src_folder = datasets['fix_noise']
-    dst_folder = '../processed/tests'
-    max_queue_size = 5      # For every how many results will be saved to disk
-    single_batch_size = 100 # How many image in process for each batch
-    processed_level = 3      # level, 0, 1, 2,3
+    src_folder = datasets['larger_dataset']
+    dst_folder = '../datasets/all_data'
+    max_queue_size = 5  # For every how many results will be saved to disk
+    single_batch_size = 100  # How many image in process for each batch
+    processed_level = 3  # level: 0, 1, 2, 3
     main(dst_folder=dst_folder, src_folder=src_folder, max_queue_size=max_queue_size,
-         single_batch_size=single_batch_size, processed_level=processed_level, process_methods_with_params=all_methods_with_params)
+         single_batch_size=single_batch_size, processed_level=processed_level,
+         process_methods_with_params=all_methods_with_params)
